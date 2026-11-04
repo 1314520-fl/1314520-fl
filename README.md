@@ -1,16 +1,38 @@
-## Hi there 👋
+### 冯乐
 
-<!--
-**1314520-fl/1314520-fl** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Java 后端开发 · 江西软件职业技术大学 软件工程（本科）· 2027 届
 
-Here are some ideas to get you started:
+做后端时比较在意两件事：**一件事的效果能不能被量化**，**一次失败能不能被定位**。
+下面两个项目都是按这个标准写的——有标注集和留出集，有分层的错误信息，也有写得明明白白的已知缺陷。
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+---
+
+#### 技术栈
+
+`Java 17` `Spring Boot 3` `PostgreSQL` `pgvector` `MinIO` `Docker` `SSE` `Micrometer` `JUnit 5`
+
+#### 项目
+
+| 项目 | 一句话 |
+|---|---|
+| **[rag-kb](https://github.com/1314520-fl/rag-kb)** | 企业内部知识库问答。PDF / Word / Markdown 解析与结构化切分，向量 + BM25 双路召回经 RRF 融合后重排，答案带可点击的原文出处。关键设计：无命中直接拒答，不让模型编。 |
+| **[agent-flow](https://github.com/1314520-fl/agent-flow)** | AI 智能体工作流编排平台。JSON DSL 编译成分层拓扑序，同层并行、层间串行；条件分支挂在边上而不引入控制节点；支持断点续跑与单步重跑；模型调用统一走网关，做超时、指数退避、主备降级与 token 计量。 |
+
+两个项目都做到了**零外部中间件即可跑起来**：模型、存储、限流都是可替换的进程内实现，`git clone` 之后 `mvn test` 直接能过。
+
+#### 关于评估，多说一句
+
+`rag-kb` 里我准备了**两套**标注集：14 条校准集用来扫拒答阈值，24 条留出集写完就不动。
+留出集上的 Recall@5 是 **0.85**，比校准集的 1.00 低——这不是 bug，是样本内校准的正常代价。
+我看到 0.85 之后**没有回去降阈值**，因为那样留出集就变成第二份校准集了。诊断结论写在 README 里：关掉阈值后排序仍是 1.00，说明问题出在阈值偏紧而不是检索本身。
+
+#### 认证
+
+- 华为 HCIP
+- HarmonyOS 高级开发者
+- 人工智能训练师
+- 计算机维修工
+
+#### 联系
+
+邮箱：2232106451@qq.com
